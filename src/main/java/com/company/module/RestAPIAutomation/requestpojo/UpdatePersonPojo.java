@@ -4,12 +4,11 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * This class has a object of Address class.
- * POJO class for post call
- * @author atupadhy
- *
+ * POJO class used for put call
+ * @param address
  */
-public class CreatePerson {
+public class UpdatePersonPojo {
+	
 	@SerializedName("name")
 	@Expose
 	private String name;
@@ -45,3 +44,4 @@ public class CreatePerson {
 	}
 
 }
+
