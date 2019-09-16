@@ -1,0 +1,33 @@
+Q- What do you mean by rest ApI automation?
+	A- Every API has a payload which is a data which API will consume.
+	Sometime delete call does or doesn't require data.
+	
+	Every Request is coming under the arraylist. Under the arraylist, we have multiple maps.
+	
+	For ex-> Request data or payload..it has 2 maps with Address as a class.
+	[ {
+		"name": "Atul",
+		"surname": "Upadhyay",
+		"address":{
+			"city": "Aligarh",
+			"state": "Uttar pradesh",
+			"zipcode": "201301",
+			"landmark":"testlandmark"
+		}
+	},
+	
+	{
+		"name": "Ashish",
+		"surname": "Upadhyay",
+		"address":{
+			"city": "Aligarh",
+			"state": "Uttar pradesh",
+			"zipcode": "201301",
+			"landmark":"testlandmark1"
+		}
+	}]
+	
+	go to jsonschema2json.org and paste this request data. It will generate 2 class - one for Address and one for upper layer data.
+	
+Use this war file placed under the service package, place it in webapps, so that you can get the service. After that you start the tomcat, go to the 
+bin folder, then click on start.bat file there
