@@ -31,3 +31,6 @@ Q- What do you mean by rest ApI automation?
 	
 Use this war file placed under the service package, place it in webapps, so that you can get the service. After that you start the tomcat, go to the 
 bin folder, then click on start.bat file there
+
+Q- We need to see when response comes from the server, 	we need to parse it and we need to put the verification. We already create response pojo classes. We will instantiate the POJO classes from 
+the response we got from the server.then we put the assertion.

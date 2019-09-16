@@ -4,9 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.json.JSONObject;
+import org.testng.Assert;
 
 import com.company.module.RestAPIAutomation.requestpojo.Address;
 import com.company.module.RestAPIAutomation.requestpojo.CreatePerson;
+import com.company.module.RestAPIAutomation.responsepojo.CreatePersonResponse;
+import com.google.gson.Gson;
 import com.jayway.restassured.RestAssured;
 import com.jayway.restassured.response.Response;
 import com.jayway.restassured.specification.RequestSpecification;
@@ -64,10 +67,32 @@ public class Service {
 		 return response;
 	}
 	
+	/*
+	 * In testng, it will be replaced with test method.
+	 */
 	public static void main(String[] args) {
 		Service service = new Service();
 		Response data = service.createPersonAPI("name", "surname", "city", "landmark", "state", "560072");
 		System.out.println(data.asString());
+		
+		if(data.getStatusCode() ==200)
+		{
+			Gson gson=new Gson();
+			CreatePersonResponse createPersonResponse= gson.fromJson(data.asString(), CreatePersonResponse.class);
+			
+			/*
+			 * Now put the assertion. Here i know my payload so I do the hardcoding. Ideally, we can create database connection. From the db, we will read and compart it 
+			 * with response. 
+			 */
+			
+			Assert.assertEquals(createPersonResponse.getResponse().get(0).getAddress().getCity(), "city");
+			Assert.assertEquals(createPersonResponse.getResponse().get(0).getAddress().getLandmark(), "landmark");
+			Assert.assertEquals(createPersonResponse.getResponse().get(0).getAddress().getState(),"state");
+			Assert.assertEquals(createPersonResponse.getResponse().get(0).getAddress().getZipcode(),"560072");
+			Assert.assertEquals(createPersonResponse.getResponse().get(0).getName(),"name");
+			Assert.assertEquals(createPersonResponse.getResponse().get(0).getSurname(),"surname");
+		}
+	
 	}
 
 }

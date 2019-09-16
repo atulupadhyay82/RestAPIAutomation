@@ -5,7 +5,12 @@ import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class CreatePerson {
+/**
+ * main class in the response pojo classes
+ * @author atupadhy
+ *
+ */
+public class CreatePersonResponse {
 
 	@SerializedName("response")
 	@Expose
