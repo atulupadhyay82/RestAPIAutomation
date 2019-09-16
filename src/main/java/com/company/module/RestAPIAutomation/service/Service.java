@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.json.JSONObject;
 import org.testng.Assert;
+import org.testng.annotations.Test;
 
 import com.company.module.RestAPIAutomation.requestpojo.Address;
 import com.company.module.RestAPIAutomation.requestpojo.CreatePerson;
@@ -93,6 +94,20 @@ public class Service {
 			Assert.assertEquals(createPersonResponse.getResponse().get(0).getSurname(),"surname");
 		}
 	
+	}
+	
+	/**
+	 * This API will retrun state details. I want to convert into testNG file. Just go src/test/java 
+	 * @return 
+	 */
+	@Test
+	public Response getStateDetails() {
+		RequestSpecification requestSpecification= RestAssured.given();
+		 requestSpecification.contentType("application/json");
+		 requestSpecification.accept("application/json");
+		 System.out.println("endpoint URL is..."+ServiceURL.getStateDetails);
+		 Response response = requestSpecification.get(ServiceURL.getStateDetails);
+		 return response;
 	}
 
 }

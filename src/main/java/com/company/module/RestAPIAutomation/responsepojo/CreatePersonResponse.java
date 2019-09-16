@@ -25,3 +25,34 @@ public class CreatePersonResponse {
 	}
 
 }
+
+/*
+ * Response for this API would look like
+ * 
+Response:
+{
+    "response": [
+        {
+            "name": "Bhanu",
+            "surname": "Singh",
+            "address": {
+                "city": "testCity",
+                "state": "testState",
+                "zipcode": "560078",
+                "landmark": "testlandmark"
+            }
+        },
+        {
+            "name": "Test",
+            "surname": "Singh",
+            "address": {
+                "city": "testCity",
+                "state": "testState",
+                "zipcode": "560078",
+                "landmark": "testlandmark"
+            }
+        }
+    ]
+}
+
+*/
